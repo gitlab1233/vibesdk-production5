@@ -20,10 +20,11 @@ import { AIModels, InferenceMetadata } from './config.types';
 import { RateLimitService } from '../../services/rate-limit/rateLimits';
 import { AuthUser } from '../../types/auth-types';
 import { getGlobalConfigurableSettings } from '../../config';
-import { SecurityError } from '../../../shared/types/errors';
 
+// CORREÇÃO: imports relativos para shared/errors e rate-limit config
+import { SecurityError, RateLimitExceededError } from '../../../shared/types/errors';
 import { executeToolWithDefinition } from '../tools/customTools';
-import { RateLimitType } from 'worker/services/rate-limit/config';
+import { RateLimitType } from '../../services/rate-limit/config';
 
 function optimizeInputs(messages: Message[]): Message[] {
     return messages.map((message) => ({
@@ -385,7 +386,7 @@ async function executeToolCalls(openAiToolCalls: ChatCompletionMessageFunctionTo
                     name: tc.function.name,
                     arguments: {},
                     result: { error: `Failed to execute ${tc.function.name}: ${error instanceof Error ? error.message : 'Unknown error'}` }
-            };
+                };
             }
         })
     );
