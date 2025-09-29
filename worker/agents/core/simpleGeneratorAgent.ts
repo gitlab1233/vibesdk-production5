@@ -40,8 +40,9 @@ import { looksLikeCommand } from '../utils/common';
 import { generateBlueprint } from '../planning/blueprint';
 import { prepareCloudflareButton } from '../../utils/deployToCf';
 import { AppService } from '../../database';
-import { RateLimitExceededError } from 'shared/types/errors';
-import { generateId } from 'worker/utils/idGenerator';
+import { RateLimitExceededError } from '../../../shared/types/errors';
+import { generateId } from '../../utils/idGenerator';
+
 
 interface WebhookPayload {
     event: {
