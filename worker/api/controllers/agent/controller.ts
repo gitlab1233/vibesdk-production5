@@ -11,8 +11,7 @@ import { ModelConfig } from '../../../agents/inferutils/config.types';
 import { RateLimitService } from '../../../services/rate-limit/rateLimits';
 import { validateWebSocketOrigin } from '../../../middleware/security/websocket';
 import { createLogger } from '../../../logger';
-import { getPreviewDomain } from 'worker/utils/urls';
-
+import { getPreviewDomain } from '../../utils/urls';
 const defaultCodeGenArgs: CodeGenArgs = {
     query: '',
     language: 'typescript',
