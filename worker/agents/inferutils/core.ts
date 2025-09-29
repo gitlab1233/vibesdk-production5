@@ -20,7 +20,8 @@ import { AIModels, InferenceMetadata } from './config.types';
 import { RateLimitService } from '../../services/rate-limit/rateLimits';
 import { AuthUser } from '../../types/auth-types';
 import { getGlobalConfigurableSettings } from '../../config';
-import { SecurityError, RateLimitExceededError } from 'shared/types/errors';
+import { SecurityError } from '../../../shared/types/errors';
+
 import { executeToolWithDefinition } from '../tools/customTools';
 import { RateLimitType } from 'worker/services/rate-limit/config';
 
