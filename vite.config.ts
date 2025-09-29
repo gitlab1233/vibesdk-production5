@@ -49,16 +49,16 @@ export default defineConfig({
 	],
 
 	resolve: {
-		alias: {
-			// 'path': 'path-browserify',
-			// Add this line to fix the 'debug' package issue
-			debug: 'debug/src/browser',
-			// "@": path.resolve(__dirname, "./src"),
-			'@': path.resolve(__dirname, './src'),
-            'shared': path.resolve(__dirname, './shared'),
-            'worker': path.resolve(__dirname, './worker'),
-		},
-	},
+  alias: {
+    debug: 'debug/src/browser',
+    '@': path.resolve(__dirname, './src'),
+
+    // Estes dois são essenciais para o Wrangler resolver:
+    'shared': path.resolve(__dirname, './shared'),
+    'worker': path.resolve(__dirname, './worker'),
+  },
+},
+
 
 	// Configure for Prisma + Cloudflare Workers compatibility
 	define: {
